@@ -35,8 +35,8 @@ Welcome to my personal library of cloud engineering scripts. This repository con
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/cloud-engineering-scripts.git
-   cd cloud-engineering-scripts
+   git clone https://github.com/JasonTeixeira/CloudEngLibrary
+   cd cloudEngLibrary
 
 
 ---
