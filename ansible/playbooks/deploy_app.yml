@@ -1,0 +1,1 @@
+- hosts: webservers\n  tasks:\n    - name: Install Nginx\n      apt:\n        name: nginx\n        state: present
