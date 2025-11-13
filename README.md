@@ -20,7 +20,7 @@ After 3+ years working with cloud infrastructure, I kept rewriting the same scri
 
 This repo is my personal toolkit. It's organized by tool/platform, not by project. When I need to spin up monitoring, I grab the Grafana dashboard config. When I need IAM automation, I pull the user management script.
 
-It's not comprehensive. It's not enterprise-grade. It's just the stuff I've actually used and found worth keeping.
+It's not comprehensive. It's not meant for big teams. It's just the stuff I've actually used and found worth keeping.
 
 ## What's Inside
 
