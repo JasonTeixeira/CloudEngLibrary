@@ -1,280 +1,121 @@
-## **Overview**
+# Cloud Engineering Library
 
-Welcome to the **Script Library Repository**, a curated collection of scripts, tools, and configurations covering a wide range of cloud engineering, DevOps, and automation tasks. This library is designed to serve as a **ready-to-use toolkit** for common and complex infrastructure challenges, including **networking, security automation, CI/CD pipelines, APIs, and monitoring solutions**.
-
-This repository is structured to reflect the breadth of **real-world engineering practices**, organized into high-level categories that mirror the responsibilities of **cloud architects, security engineers, and DevOps professionals**.
-
----
-
-## **Repository Structure**
+**My personal collection of cloud automation scripts and IaC templates**
 
 ```
-plaintext
-Copy code
-📂 script-library/
-├── ansible/                      # Configuration management playbooks
-│   └── playbooks/
-│       └── harden_nginx.yml
-├── chef/                         # Chef cookbooks and recipes
-│   └── cookbooks/
-│       └── webserver/
-│           └── recipes/
-│               └── default.rb
-├── puppet/                       # Puppet manifests and modules
-│   └── manifests/
-│       └── nginx.pp
-├── kubernetes/                   # Kubernetes deployments and configurations
-│   ├── deployments/
-│   │   └── nginx_deployment.yaml
-│   └── services/
-│       └── nginx_service.yaml
-├── terraform/                    # Terraform IaC modules
-│   └── vpc_setup.tf
-├── docker/                       # Docker configurations and containers
-│   ├── Dockerfile
-│   └── docker-compose.yml
-├── cicd/                         # CI/CD pipelines and automation scripts
-│   ├── github-actions/
-│   │   └── deploy_infra.yml
-│   └── jenkins/
-│       └── Jenkinsfile
-├── api/                          # API integrations and configurations
-│   ├── rest/
-│   │   └── api_client.py
-│   ├── graphql/
-│   │   └── graphql_query_example.py
-│   ├── postman/
-│   │   └── api_collection.json
-│   └── swagger/
-│       └── openapi_spec.yaml
-├── monitoring-logging/           # Monitoring scripts and alerting configurations
-│   ├── grafana/
-│   │   └── dashboard.json
-│   └── cloudwatch/
-│       └── alarm_setup.py
-├── network/                      # Networking scripts and automation
-│   ├── vpn/
-│   │   └── vpn_config.sh
-│   └── firewall/
-│       └── firewall_rules.json
-├── security/                     # Security automation scripts
-│   ├── authentication/
-│   │   └── generate_oauth_token.py
-│   └── authorization/
-│       └── rbac_policy.json
-├── serverless/                   # Serverless functions
-│   └── lambda/
-│       └── s3_event_trigger.py
-├── automation-scripts/           # General-purpose automation scripts
-│   └── python/
-│       └── create_ec2_instance.py
-└── documentation/                # Documentation and usage instructions
-    └── README.md
-
+┌──────────────────────────────────────────────┐
+│  WHAT THIS IS                                │
+├──────────────────────────────────────────────┤
+│  • Reusable scripts for AWS/Azure/GCP       │
+│  • Terraform modules, K8s configs, Lambda   │
+│  • Ansible playbooks, Docker compose files  │
+│  • Built over 3+ years of cloud work        │
+│  • Reference library, not a product         │
+└──────────────────────────────────────────────┘
 ```
 
----
+## Why This Exists
 
-## **Detailed Breakdown of Each Category**
+After 3+ years working with cloud infrastructure, I kept rewriting the same scripts. "How do I set up a VPC with Terraform again?" "What's the syntax for CloudWatch alarms?" "Where's that Lambda function I wrote for S3 event processing?"
 
-### 1. **Ansible**
+This repo is my personal toolkit. It's organized by tool/platform, not by project. When I need to spin up monitoring, I grab the Grafana dashboard config. When I need IAM automation, I pull the user management script.
 
-- **Purpose:** Automate system configuration tasks.
-- **Examples:**
-    - `harden_nginx.yml`: Playbook to secure an Nginx web server.
+It's not comprehensive. It's not enterprise-grade. It's just the stuff I've actually used and found worth keeping.
 
----
+## What's Inside
 
-### 2. **Chef**
+**Infrastructure as Code:**
+- `terraform/` - VPC setup, security groups, networking configs
+- `ansible/` - Server hardening, app deployment playbooks
+- `puppet/` - Nginx management (don't use Puppet much anymore)
+- `chef/` - Web server cookbooks (mostly legacy)
 
-- **Purpose:** Automate infrastructure configuration using cookbooks and recipes.
-- **Examples:**
-    - `default.rb`: Recipe to install and configure a web server.
+**Container & Orchestration:**
+- `docker/` - Dockerfiles and compose files for common stacks
+- `kubernetes/` - Deployments, services, ingress configs (basic stuff, not production Helm charts)
 
----
+**Cloud Platforms:**
+- `aws/` - EC2, S3, Lambda automation scripts
+- `azure/` - Resource group management, some ARM templates
+- `gcp/` - Compute Engine scripts, Cloud Functions
 
-### 3. **Puppet**
+**CI/CD:**
+- `cicd/github-actions/` - Deployment workflows
+- `cicd/jenkins/` - Jenkinsfiles (older projects)
 
-- **Purpose:** Enforce infrastructure state with declarative manifests.
-- **Examples:**
-    - `nginx.pp`: Manifest to install and manage an Nginx instance.
+**Automation:**
+- `serverless/lambda/` - Python Lambda functions (S3 events, EC2 autoscaling)
+- `api-scripts/` - REST API clients, Swagger specs
+- `automation-scripts/` - General Python/Bash scripts for cloud tasks
+- `iam-automation/` - User/role management scripts
+- `backup-recovery/` - Database backup automation
 
----
+**Monitoring & Security:**
+- `monitoring-logging/` - CloudWatch alarms, Grafana dashboards
+- `security/` - OAuth token generation, RBAC policies
+- `network-config/` - VPN setup, firewall rules
 
-### 4. **Kubernetes**
+## Organization
 
-- **Purpose:** Manage containerized workloads and services.
-- **Examples:**
-    - `nginx_deployment.yaml`: Deploy an Nginx pod.
-    - `nginx_service.yaml`: Expose the pod as a service.
+Everything is organized by **tool/technology**, not by project. The directory names match what I'd search for:
 
----
+```
+CloudEngLibrary/
+├── terraform/          # When I need Terraform templates
+├── kubernetes/         # When I need K8s configs
+├── aws/               # When I need AWS-specific scripts
+├── serverless/        # When I need Lambda functions
+└── ...
+```
 
-### 5. **Terraform**
+Some directories have minimal files (Chef, Puppet) because I don't use those tools much anymore. I kept them for reference.
 
-- **Purpose:** Automate cloud infrastructure using IaC.
-- **Examples:**
-    - `vpc_setup.tf`: Configure a VPC in AWS.
+## Usage
 
----
+**This isn't a framework.** There's no installer, no CLI, no package to import. Just copy what you need.
 
-### 6. **Docker**
+Want the VPC setup?
+```bash
+cp terraform/vpc_setup.tf ~/my-project/
+# Edit variables, run terraform apply
+```
 
-- **Purpose:** Manage container images and orchestration.
-- **Examples:**
-    - `Dockerfile`: Build an image for a Python app.
-    - `docker-compose.yml`: Define multi-container applications.
+Need a Lambda function for S3 events?
+```bash
+cp serverless/lambda/s3_event_trigger.py ~/my-lambda/
+# Modify logic, zip it, upload to AWS
+```
 
----
+Most scripts assume you have AWS/GCP/Azure CLI configured with proper credentials.
 
-### 7. **CI/CD Pipelines**
+## What This Isn't
 
-- **Purpose:** Automate deployments and delivery processes.
-- **Examples:**
-    - `deploy_infra.yml`: Automate infrastructure deployments with GitHub Actions.
-    - `Jenkinsfile`: Pipeline for building and deploying APIs.
+**Not production-ready:** These scripts work for my use cases. They don't have comprehensive error handling, logging, or tests. Use them as starting points, not drop-in solutions.
 
----
+**Not best practices:** Some scripts use hardcoded values. Some use outdated patterns. I kept them because they work for quick prototyping.
 
-### 8. **API Integrations**
+**Not complete:** There are gaps. No ECS configs, minimal GCP content, no multi-region Terraform. I add things as I need them.
 
-- **Purpose:** Manage and interact with APIs.
-- **Examples:**
-    - `api_client.py`: Python script for interacting with REST APIs.
-    - `openapi_spec.yaml`: OpenAPI 3.0 specification for documentation.
+## Real-World Use
 
----
+I use this library weekly for:
+- Spinning up test environments (Terraform VPC + Docker containers)
+- Lambda functions for personal projects (S3 triggers, scheduled tasks)
+- CloudWatch alarms when I forget to set them up initially
+- Kubernetes configs for small side projects
 
-### 9. **Monitoring and Logging**
+The most-used files:
+- `terraform/vpc_setup.tf` - Copied 10+ times
+- `serverless/lambda/s3_event_trigger.py` - Base template for event-driven automation
+- `monitoring-logging/cloudwatch/alarm-setup.py` - Set up billing/resource alarms fast
+- `docker/docker-compose.yml` - Local dev environment boilerplate
 
-- **Purpose:** Track system health and performance.
-- **Examples:**
-    - `alarm_setup.py`: Configure CloudWatch alarms.
-    - `dashboard.json`: Grafana dashboard for monitoring cloud resources.
+## Contributing
 
----
-
-### 10. **Networking**
-
-- **Purpose:** Manage cloud networking components.
-- **Examples:**
-    - `vpn_config.sh`: Script to set up a VPN connection.
-    - `firewall_rules.json`: JSON defining firewall rules.
-
----
-
-### 11. **Security**
-
-- **Purpose:** Automate security policies and compliance.
-- **Examples:**
-    - `generate_oauth_token.py`: Script to generate OAuth tokens.
-    - `rbac_policy.json`: Define role-based access control policies.
-
----
-
-### 12. **Serverless Functions**
-
-- **Purpose:** Handle event-driven architectures.
-- **Examples:**
-    - `s3_event_trigger.py`: Lambda function to handle S3 events.
+This is a personal repo, but if you find something useful or spot an error, feel free to open an issue or PR. Just know that I'm optimizing for "works for me" over "works for everyone."
 
 ---
 
-### 13. **Automation Scripts**
-
-- **Purpose:** General-purpose scripts for cloud automation.
-- **Examples:**
-    - `create_ec2_instance.py`: Script to launch an EC2 instance.
-
----
-
-### 14. **Documentation**
-
-- **Purpose:** Provide usage instructions and project context.
-- **Examples:**
-    - `README.md`: Overview of the repository with instructions.
-
----
-
-## **Usage**
-
-1. **Clone the Repository**:
-    
-    ```bash
-    bash
-    Copy code
-    git clone https://github.com/your-username/script-library.git
-    cd script-library
-    
-    ```
-    
-2. **Run Python Scripts**:
-    
-    ```bash
-    bash
-    Copy code
-    python automation-scripts/python/create_ec2_instance.py
-    
-    ```
-    
-3. **Deploy Infrastructure with Terraform**:
-    
-    ```bash
-    bash
-    Copy code
-    terraform apply terraform/vpc_setup.tf
-    
-    ```
-    
-
----
-
-## **How to Contribute**
-
-1. **Fork the Repository** and create a new branch:
-    
-    ```bash
-    bash
-    Copy code
-    git checkout -b feature/add-new-script
-    
-    ```
-    
-2. **Commit your changes**:
-    
-    ```bash
-    bash
-    Copy code
-    git commit -m "Added new script for Lambda function"
-    
-    ```
-    
-3. **Push your branch**:
-    
-    ```bash
-    bash
-    Copy code
-    git push origin feature/add-new-script
-    
-    ```
-    
-
----
-
-## **Conclusion**
-
-The **Script Library Repository** represents a comprehensive toolkit covering a wide range of essential **cloud engineering, DevOps, automation, security, and API tasks**. This repository has been meticulously structured to reflect the real-world responsibilities of a **cloud architect and engineer**, ensuring readiness for **production environments** and **complex projects**.
-
-With contributions across multiple domains—such as **Infrastructure as Code (IaC), Kubernetes, CI/CD pipelines, security automation, serverless architecture**, and **monitoring solutions**—this library demonstrates both **depth and versatility**. Each category aligns with industry best practices, offering reusable scripts and templates that speed up development, increase automation, and ensure compliance.
-
-By leveraging this script library, engineers can:
-
-- **Quickly deploy infrastructure** and manage resources across multi-cloud environments.
-- **Automate security policies** and monitor applications to ensure uptime and resilience.
-- **Implement CI/CD workflows** to streamline delivery pipelines and deployments.
-- **Extend the toolkit** to include serverless functions, API integrations, and network management scripts.
-
----
-
-This repository will not only serve as a **valuable personal tool** but also act as a **portfolio asset** for interviews and future roles. With its clean structure, clear documentation, and variety of resources, this library reflects the mindset of a **top-tier engineer and architect** ready to tackle modern cloud challenges.
-
+**Started:** ~2021 (some scripts date back to my sysadmin days)  
+**Last major update:** October 2024  
+**Status:** Active reference library
